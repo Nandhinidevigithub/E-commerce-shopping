@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Customer -CRUD</h1>
+   
+    <a href="#" routerLink="/customer/create/" class="btn btn-success">Create New Customer</a>
+     
+    <table class="table table-bordered" >
+      <tr>
+        <th>Customer Id</th>
+        <th>Full Name</th>
+        <th>Email Address</th>
+        <th>Password</th>
+        <th>Delivery Address</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let cust of customers">
+        <td>{{ cust.customerId }}</td>
+        <td>{{ cust.fullname }}</td>
+        <td>{{ cust.emailAddress }}</td>
+        <td>{{ cust.password }}</td>
+        <td>{{ cust.deliveryAddress }}</td>
+        <td>
+          <a href="#" [routerLink]="['/customer/',  cust.customerId, 'view']" class="btn btn-info">View</a>
+          <a href="#" [routerLink]="['/customer/',  cust.customerId, 'edit']" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deletePost( cust.customerId)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </div>

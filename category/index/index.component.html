@@ -1,0 +1,28 @@
+<div class="container">
+    
+   
+    <a href="#" routerLink="/category/create/" class="btn btn-success">Create New Category</a>
+     
+    <table class="table table-bordered" >
+      <tr>
+        <th>Category ID</th>
+        <th>Category Name</th>
+        <th>Description</th>
+        <th>Image</th>
+
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let cat of categories">
+        <td>{{ cat.categoryId }}</td>
+        <td>{{ cat.categoryName }}</td>
+        <td>{{ cat.description}}</td>
+        <td>{{ cat.image }}</td>
+
+        <td>
+          <a href="#" [routerLink]="['/category/',  cat.categoryId, 'view']" class="btn btn-info">View</a>
+          <a href="#" [routerLink]="['/category/',   cat.categoryId, 'edit']" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deletePost(  cat.categoryId)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </div>

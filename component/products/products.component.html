@@ -1,0 +1,59 @@
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('')">
+            <img src="https://w7.pngwing.com/pngs/630/617/png-transparent-assorted-product-in-metal-shopping-basket-shopping-cart-grocery-store-retail-supermarket-shopping-cart.png" alt="">
+                <h6>All products</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('electronics')">
+                <img src="https://ipfonline.com/assets/uploads/s3/data/industry_updates/news/8313c5cd3d70b94cb86feb6c6ddff927.jpg" alt="">
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('fashion')">
+                <img src="https://www.thefashionisto.com/wp-content/uploads/2020/05/Couple-Leather-Jacket-Jeans-Stylish-Fashion.jpg" alt="">
+                <h6>Fashion</h6>
+            </a>    
+        </div>
+        <div class="item">
+            <a (click)="filter('jewelery')">
+                <img src="https://www.efashionlady.com/wp-content/uploads/2019/10/latest-diamond-jewelry-designs.jpg" alt="">
+                <h6>Jewellery</h6>
+            </a>    
+        </div>
+        <div class="item">
+            <a>
+                <img src="https://5.imimg.com/data5/SELLER/Default/2021/2/BF/YL/GY/54285427/all-grocery-items-500x500.png" alt="">
+                <h6>Grocery</h6>
+            </a>
+            
+        </div>
+        <div class="item">
+            <a>
+                <img src="https://images.hindustantimes.com/rf/image_size_640x362/HT/p1/2015/02/06/Incoming/Pictures/1314248_Wallpaper2.jpg" alt="">
+                <h6>Cosmetics</h6>
+            </a>    
+        </div>
+        
+      
+
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
+            <div class="card col-md-3" >
+                <img src="{{item.image}}" alt="" >
+                <h5 style="white-space: nowrap;overflow:hidden ;text-overflow:ellipsis;max-width:100ch">{{item.title}}</h5>
+                <p style="white-space: nowrap;overflow:hidden ;text-overflow:ellipsis;max-width:100ch" >{{item.description}}</p>
+                <p><strong>Price:</strong>${{item.price}}</p>
+                <button class="btn btn-primary"(click)=addtocart(item)>Add to cart</button>
+              </div>
+        </ng-container>
+   
+   </div>
+</div>
+

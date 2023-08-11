@@ -1,0 +1,61 @@
+<div class="container">
+    <h1>Create New Category</h1>
+   
+    <a href="#" routerLink="/category/index" class="btn btn-primary">Back</a>
+         
+    <form [formGroup]="form" (ngSubmit)="submit()">
+   
+        <div class="form-group">
+            <label for="categoryId">Category Id:</label>
+            <input
+                formControlName="categoryId"
+                id="categoryId"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['categoryId'].touched && f['categoryId'].invalid" class="alert alert-danger">
+                <div *ngIf="f['categoryId'].errors && f['categoryId'].errors['required']">categoryId is required.</div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="categoryName">Category Name:</label>
+            <input
+                formControlName="categoryName"
+                id="categoryName"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['categoryName'].touched && f['categoryName'].invalid" class="alert alert-danger">
+                <div *ngIf="f['categoryName'].errors && f['categoryName'].errors['required']">categoryName is required.</div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input
+                formControlName="description"
+                id="description"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['description'].touched && f['description'].invalid" class="alert alert-danger">
+                <div *ngIf="f['description'].errors && f['description'].errors['required']">Description is required.</div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="image">Image:</label>
+            <input
+                formControlName="image"
+                id="image"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['image'].touched && f['image'].invalid" class="alert alert-danger">
+                <div *ngIf="f['image'].errors && f['image'].errors['required']">Image is required.</div>
+            </div>
+        </div>
+   
+       
+   
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
+

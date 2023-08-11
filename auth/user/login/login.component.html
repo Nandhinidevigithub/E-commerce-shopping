@@ -1,0 +1,25 @@
+
+<body>
+<form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
+  <div class="text" style="width: 250px;">
+   
+    <label>Username</label>
+   
+    <input type ="text"class="form-control" placeholder="Enter Username" #UserName="ngModel" name="UserName" [(ngModel)]="formModel.UserName" required>
+ 
+  </div>
+  <div class="text" style="width:250px;">
+    <label>Password</label>
+    <input type="password" class="form-control" placeholder="Enter Password" #Password="ngModel" name="Password" [(ngModel)]="formModel.Password" required>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8 offset-md-2">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Login</button>
+    </div>
+  </div>
+</form>
+
+
+</body>
+
+

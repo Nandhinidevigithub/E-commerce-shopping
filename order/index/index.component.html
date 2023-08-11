@@ -1,0 +1,28 @@
+<!-- <p>index works!</p> -->
+
+<div class="container">
+    <h1>Order-CRUD</h1>
+   
+    <a href="#" routerLink="/order/create/" class="btn btn-success">Create New Order</a>
+     
+    <table class="table table-bordered" >
+      <tr>
+        <th>Order Id</th>
+        <th>Customer Id</th>
+        <th>Order Date</th>
+        <th>Ship Date</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let ord of orders">
+        <td>{{ord.orderId }}</td>
+        <td>{{ord.customerId}}</td>
+        <td>{{ord.orderDate}}</td>
+        <td>{{ord.shipDate}}</td>
+        <td>
+          <a href="#" [routerLink]="['/order/', ord.orderId , 'view']" class="btn btn-info">View</a>
+          <a href="#" [routerLink]="['/order/',  ord.orderId, 'edit']" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deletePost(ord.orderId )" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </div>

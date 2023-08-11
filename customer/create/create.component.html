@@ -1,0 +1,72 @@
+<div class="container">
+    <h1>Create New Post</h1>
+   
+    <a href="#" routerLink="/customer/index" class="btn btn-primary">Back</a>
+         
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="customerId">Customer Id:</label>
+            <input
+                formControlName="customerId"
+                id="customerId"
+                type="number"
+                class="form-control">
+            <div *ngIf="f['customerId'].touched && f['customerId'].invalid" class="alert alert-danger">
+                <div *ngIf="f['customerId'].errors && f['customerId'].errors['required']">Customer Id is required.</div>
+            </div>
+        </div>
+   
+        <div class="form-group">
+            <label for="fullname">Full Name:</label>
+            <input
+                formControlName="fullname"
+                id="fullname"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['fullname'].touched && f['fullname'].invalid" class="alert alert-danger">
+                <div *ngIf="f['fullname'].errors && f['fullname'].errors['required']">Full Name is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="emailAddress">Email Address:</label>
+            <input
+                formControlName="emailAddress"
+                id="emailAddress"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['emailAddress'].touched && f['emailAddress'].invalid" class="alert alert-danger">
+                <div *ngIf="f['emailAddress'].errors && f['emailAddress'].errors['required']">Email Address is required.</div>
+            </div>
+        </div>
+   
+        <div class="form-group">
+            <label for="password">Password</label>
+            <textarea
+                formControlName="password"
+                id="password"
+                type="text"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+                <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="deliveryAddress">Delivery Address</label>
+            <textarea
+                formControlName="deliveryAddress"
+                id="deliveryAddress"
+                type="text"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['deliveryAddress'].touched && f['deliveryAddress'].invalid" class="alert alert-danger">
+                <div *ngIf="f['deliveryAddress'].errors && f['deliveryAddress'].errors['required']">Delivery Address is required.</div>
+            </div>
+        </div>
+   
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
